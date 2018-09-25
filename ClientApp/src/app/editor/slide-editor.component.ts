@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Slide} from "../entities/slide";
+import { SlideStyle } from '../entities/slide-set';
 
 @Component({
   selector: 'app-slide-editor',
@@ -7,6 +8,8 @@ import {Slide} from "../entities/slide";
   styleUrls: ['./slide-editor.component.scss']
 })
 export class SlideEditorComponent implements OnInit {
+  @Input()
+  public slideStyle: SlideStyle;
 
   @Input()
   public slide = new Slide();
@@ -14,5 +17,4 @@ export class SlideEditorComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

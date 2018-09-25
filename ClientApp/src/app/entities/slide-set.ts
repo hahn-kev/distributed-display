@@ -5,7 +5,6 @@ export class SlideSet {
   public slides: Slide[];
   public style: SlideStyle;
   public backgroundStyle: SlideStyle;
-
 }
 
 

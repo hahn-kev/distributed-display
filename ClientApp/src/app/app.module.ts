@@ -13,7 +13,7 @@ import {
   MatSidenavModule,
   MatIconModule,
   MatListModule,
-  MatFormFieldModule, MatInputModule
+  MatFormFieldModule, MatInputModule, MatButtonToggleModule
 } from '@angular/material';
 import { AppRoutingModule } from './/app-routing.module';
 import { SlideEditorComponent } from './editor/slide-editor.component';
@@ -39,6 +39,7 @@ import {HubConnectionBuilder} from "@aspnet/signalr";
     LayoutModule,
     MatToolbarModule,
     MatButtonModule,
+    MatButtonToggleModule,
     MatSidenavModule,
     MatIconModule,
     MatListModule,

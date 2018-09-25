@@ -1,4 +1,28 @@
-<mat-form-field *ngIf="slide">
-  <mat-label>Text</mat-label>
-  <textarea matInput [(ngModel)]="slide.text"></textarea>
-</mat-form-field>
+<ng-container *ngIf="slide">
+  <mat-button-toggle-group [(value)]="slideStyle['justify-self']">
+    <mat-button-toggle value="left">
+      <mat-icon>format_align_left</mat-icon>
+    </mat-button-toggle>
+    <mat-button-toggle value="center">
+      <mat-icon>format_align_center</mat-icon>
+    </mat-button-toggle>
+    <mat-button-toggle value="right">
+      <mat-icon>format_align_right</mat-icon>
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+  <mat-button-toggle-group [(value)]="slideStyle['align-self']">
+    <mat-button-toggle value="top">
+      <mat-icon>vertical_align_top</mat-icon>
+    </mat-button-toggle>
+    <mat-button-toggle value="center">
+      <mat-icon>vertical_align_center</mat-icon>
+    </mat-button-toggle>
+    <mat-button-toggle value="bottom">
+      <mat-icon>vertical_align_bottom</mat-icon>
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+  <mat-form-field>
+    <mat-label>Text</mat-label>
+    <textarea matInput [(ngModel)]="slide.text"></textarea>
+  </mat-form-field>
+</ng-container>
