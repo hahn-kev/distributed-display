@@ -13,7 +13,7 @@ export class PresenterService {
   }
 
   constructor(private hubConnectionBuilder: HubConnectionBuilder) {
-    this.connection = this.hubConnectionBuilder.withUrl('/present').build();
+    this.connection = this.hubConnectionBuilder.withUrl('/hub/present').build();
     this.connection.on('slideEvent', (event: SlideEvent) => {
       this.slideEventEmitter.emit(event);
     });

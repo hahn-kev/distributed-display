@@ -51,7 +51,7 @@ namespace distributed_display
                     name: "default",
                     template: "{controller}/{action=Index}/{id?}");
             });
-            app.UseSignalR(builder => builder.MapHub<PresentHub>("/present"));
+            app.UseSignalR(builder => builder.MapHub<PresentHub>("/hub/present"));
             app.UseSpa(spa =>
             {
                 // To learn more about options for serving an Angular SPA from ASP.NET Core,
