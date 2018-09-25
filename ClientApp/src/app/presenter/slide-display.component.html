@@ -1,0 +1,7 @@
+<ng-container *ngIf="slide">
+  <div class="text-area">
+
+    <span [ngStyle]="slideStyle">{{slide.text}}</span>
+  </div>
+  <img class="background" [src]="slide.img">
+</ng-container>

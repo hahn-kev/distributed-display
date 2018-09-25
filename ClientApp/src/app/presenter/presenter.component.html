@@ -1,0 +1,10 @@
+<div>
+  <div class="display" [ngStyle]="slideSet.backgroundStyle" *ngFor="let slide of slideRenderList; even as even; index as i">
+    <app-slide-display
+      [slide]="slide"
+      [style.z-index]="slide.id == selectedSlide.id ? 10 : -5"
+      [slideStyle]="slideSet.style">
+
+    </app-slide-display>
+  </div>
+</div>

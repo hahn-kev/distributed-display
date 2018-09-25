@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Slide} from "../entities/slide";
 
 @Component({
@@ -7,6 +7,8 @@ import {Slide} from "../entities/slide";
   styleUrls: ['./slide-editor.component.scss']
 })
 export class SlideEditorComponent implements OnInit {
+
+  @Input()
   public slide = new Slide();
   constructor() { }
 
