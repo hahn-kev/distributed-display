@@ -1,11 +1,12 @@
-<mat-nav-list>
+<mat-nav-list class="slide-list">
   <ng-container *ngFor="let slide of slideSet.slides; last as last;">
     <mat-list-item (click)="selectedSlide = slide">
       <span>{{slide.id}}</span>
-      <span>{{slide.text}}</span>
+      <span>{{slide.title}}</span>
+      <mat-icon *ngIf="selectedSlide == slide" mat-list-icon>keyboard_arrow_right</mat-icon>
     </mat-list-item>
     <mat-divider *ngIf="!last"></mat-divider>
   </ng-container>
 </mat-nav-list>
 <app-slide-editor [slide]="selectedSlide" [slideStyle]="slideSet.style"></app-slide-editor>
-<app-slide-display [slide]="selectedSlide" [slideStyle]="slideSet.style"></app-slide-display>
+<app-slide-display [slide]="selectedSlide" style="position: relative;" [ngStyle]="slideSet.backgroundStyle" [slideStyle]="slideSet.style"></app-slide-display>

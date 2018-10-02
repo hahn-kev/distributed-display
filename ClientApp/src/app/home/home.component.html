@@ -12,7 +12,7 @@
       <a mat-list-item routerLink="/present">Presentor</a>
     </mat-nav-list>
   </mat-sidenav>
-  <mat-sidenav-content>
+  <mat-sidenav-content style="display: grid; grid-template-rows: auto 1fr">
     <mat-toolbar color="primary">
       <button
         type="button"
@@ -24,7 +24,9 @@
       </button>
       <span>distributed_display</span>
     </mat-toolbar>
-    <!-- Add Content Here -->
-    <router-outlet></router-outlet>
+    <div style="position: relative">
+      <!-- Add Content Here -->
+      <router-outlet></router-outlet>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

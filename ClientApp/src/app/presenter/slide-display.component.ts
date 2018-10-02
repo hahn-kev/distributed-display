@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Slide } from '../entities/slide';
 import { SlideStyle } from '../entities/slide-set';
 import * as Chart from 'chart.js';

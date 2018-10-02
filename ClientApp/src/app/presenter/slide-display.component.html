@@ -1,12 +1,19 @@
-
 <ng-container *ngIf="slide" [ngSwitch]="slide.slideType">
   <ng-container *ngSwitchCase="'simpleText'">
-    <div class="text-area">
+    <div class="text-area slide">
       <span [ngStyle]="style">{{slide.text}}</span>
     </div>
-    <img class="background" [src]="slide.img">
+    <img *ngIf="slide.img" class="background" [src]="slide.img">
   </ng-container>
   <ng-container *ngSwitchCase="'chart'">
-    <canvas #canvas [id]="slide.id"></canvas>
+    <div class="chart">
+      <canvas #canvas [id]="slide.id"></canvas>
+    </div>
   </ng-container>
+  <div *ngSwitchCase="'grid'" class="slide-grid slide" [ngStyle]="style">
+    <app-slide-display *ngFor="let area of slide.areas"
+                       [slideStyle]="slideStyle"
+                       [style.grid-area]="area"
+                       [slide]="slide.slides[area]"></app-slide-display>
+  </div>
 </ng-container>

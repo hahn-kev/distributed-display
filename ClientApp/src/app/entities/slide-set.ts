@@ -1,4 +1,4 @@
-import { Slide, SlideChart, SlideSimpleText } from './slide';
+import { Slide, SlideChart, SlideGrid, SlideSimpleText } from './slide';
 
 export class SlideSet {
   public name: string;
@@ -31,7 +31,8 @@ export var SAMPLE: SlideSet = {
     new SlideSimpleText('4',
       'How do you feel about slides?',
       '/assets/img/04196_thefifthpresident_1920x1080.jpg'),
-    new SlideChart('5', {
+    new SlideSimpleText('5', `I don't have a background`),
+    new SlideChart('6', {
       type: 'pie',
       data: {
         labels: ['one', 'two', 'three', 'four'],
@@ -44,20 +45,33 @@ export var SAMPLE: SlideSet = {
       },
       options: {
         title: {text: 'Chart!', display: true},
-        legend: {display: false},
-        // scales: {
-        //   xAxes: [
-        //     {
-        //     }
-        //   ],
-        //   yAxes: [
-        //     {
-        //       ticks: {beginAtZero: true}
-        //     }
-        //   ],
-        // }
       }
-    })
+    }),
+    new SlideGrid('7',
+      {},
+      {
+        'one': new SlideSimpleText('6:a', 'hello'),
+        'two': new SlideSimpleText('6:b', 'world!'),
+        'three': new SlideSimpleText('6:c', 'I am span!', '/assets/img/04196_thefifthpresident_1920x1080.jpg'),
+        'four': new SlideChart('6:d', {
+          type: 'pie',
+          data: {
+            labels: ['one', 'two', 'three', 'four'],
+            datasets: [
+              {
+                data: [1, 2, 3, 4],
+                backgroundColor: ['blue', 'orange', 'green', 'red']
+              }
+            ]
+          },
+          options: {
+            title: {text: 'Chart!', display: true},
+          }
+        })
+      },
+      ['one two', 'three four'],
+      '1fr 1fr',
+      '1fr 1fr')
   ]
 };
 
