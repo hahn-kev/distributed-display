@@ -11,18 +11,22 @@
     </mat-button-toggle>
   </mat-button-toggle-group>
   <mat-button-toggle-group [(value)]="slideStyle['align-self']">
-    <mat-button-toggle value="top">
+    <mat-button-toggle value="start">
       <mat-icon>vertical_align_top</mat-icon>
     </mat-button-toggle>
     <mat-button-toggle value="center">
       <mat-icon>vertical_align_center</mat-icon>
     </mat-button-toggle>
-    <mat-button-toggle value="bottom">
+    <mat-button-toggle value="end">
       <mat-icon>vertical_align_bottom</mat-icon>
     </mat-button-toggle>
   </mat-button-toggle-group>
   <mat-form-field>
     <mat-label>Text</mat-label>
     <textarea matInput [(ngModel)]="slide.text"></textarea>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Style</mat-label>
+    <textarea matInput [ngModel]="slideStyle | json" (ngModelChange)="updateSlideStyle($event)"></textarea>
   </mat-form-field>
 </ng-container>

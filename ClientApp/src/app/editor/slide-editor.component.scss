@@ -1,5 +1,11 @@
 :host {
   display: grid;
-  justify-content: center;
-  align-content: center;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  align-items: center;
+}
+
+.mat-form-field {
+  justify-self: stretch;
+  align-self: stretch;
 }

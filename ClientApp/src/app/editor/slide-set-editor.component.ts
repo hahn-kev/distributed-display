@@ -9,7 +9,7 @@ import {Slide} from '../entities/slide';
 })
 export class SlideSetEditorComponent implements OnInit {
   public slideSet = SAMPLE;
-  public selectedSlide: Slide = this.slideSet[0];
+  public selectedSlide: Slide = this.slideSet.slides[0];
 
   constructor() {
   }
