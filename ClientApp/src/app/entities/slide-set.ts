@@ -1,4 +1,6 @@
-import { Slide, SlideChart, SlideGrid, SlideSimpleText } from './slide';
+import { Slide, SlideChart, SlideGrid, SlideBasic, SlideText } from './slide';
+// import { OurSlideSet } from './messages/us';
+
 
 export class SlideSet {
   public name: string;
@@ -7,7 +9,7 @@ export class SlideSet {
   public backgroundStyle: SlideStyle;
 }
 
-
+// export var SAMPLE = OurSlideSet;
 export var SAMPLE: SlideSet = {
   name: 'Super awesome programming',
   style: {
@@ -19,19 +21,19 @@ export var SAMPLE: SlideSet = {
   },
   backgroundStyle: {'background-color': 'black'},
   slides: [
-    new SlideSimpleText('1',
+    new SlideBasic('1',
       'Slides are awesome!',
       '/assets/img/04194_pagview_1920x1080.jpg'),
-    new SlideSimpleText('2',
+    new SlideBasic('2',
       'Distributed Display is awesome!!\nDoes other cool stuff',
       '/assets/img/04196_thefifthpresident_1920x1080.jpg'),
-    new SlideSimpleText('3',
+    new SlideBasic('3',
       'I like slides!',
       '/assets/img/04196_thefifthpresident_1920x1080.jpg'),
-    new SlideSimpleText('4',
+    new SlideBasic('4',
       'How do you feel about slides?',
       '/assets/img/04196_thefifthpresident_1920x1080.jpg'),
-    new SlideSimpleText('5', `I don't have a background`),
+    new SlideText('5', `I don't have a background`),
     new SlideChart('6', {
       type: 'pie',
       data: {
@@ -50,9 +52,9 @@ export var SAMPLE: SlideSet = {
     new SlideGrid('7',
       {},
       {
-        'one': new SlideSimpleText('6:a', 'hello'),
-        'two': new SlideSimpleText('6:b', 'world!'),
-        'three': new SlideSimpleText('6:c', 'I am span!', '/assets/img/04196_thefifthpresident_1920x1080.jpg'),
+        'one': new SlideText('6:a', 'hello'),
+        'two': new SlideText('6:b', 'world!'),
+        'three': new SlideBasic('6:c', 'I am span!', '/assets/img/04196_thefifthpresident_1920x1080.jpg'),
         'four': new SlideChart('6:d', {
           type: 'pie',
           data: {
