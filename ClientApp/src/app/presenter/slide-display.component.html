@@ -1,10 +1,10 @@
 <ng-container *ngIf="slide" [ngSwitch]="slide.slideType">
-  <ng-container *ngSwitchCase="'simpleText'">
+  <ng-container *ngSwitchCase="'text'">
     <div class="text-area slide">
       <span [ngStyle]="style">{{slide.text}}</span>
     </div>
-    <img *ngIf="slide.img" class="background" [src]="slide.img">
   </ng-container>
+  <img *ngSwitchCase="'image'" [ngStyle]="style" class="background" [src]="slide.img">
   <ng-container *ngSwitchCase="'chart'">
     <div class="chart">
       <canvas #canvas [id]="slide.id"></canvas>
@@ -16,4 +16,8 @@
                        [style.grid-area]="area"
                        [slide]="slide.slides[area]"></app-slide-display>
   </div>
+  <ng-container *ngSwitchCase="'stack'">
+    <app-slide-display *ngFor="let subSlide of slide.slides" [slide]="subSlide" [slideStyle]="style"></app-slide-display>
+  </ng-container>
+  <div *ngSwitchDefault="" class="text-area slide" style="color: red">Can't find case for slide type '{{slide.slideType}}'</div>
 </ng-container>

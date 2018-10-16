@@ -4,6 +4,7 @@
       [ngStyle]="slideSet.backgroundStyle"
       [slide]="slide"
       [style.z-index]="slide.id == selectedSlide.id ? 10 : -5"
+      [isShown]="slide.id == selectedSlide.id"
       [slideStyle]="slideSet.style">
 
     </app-slide-display>

@@ -1,15 +1,12 @@
-import { Slide, SlideChart, SlideGrid, SlideBasic, SlideText } from './slide';
-// import { OurSlideSet } from './messages/us';
-
+import { Slide, SlideChart, SlideGrid, SlideBasic, SlideText, SlideStack, SlideImage } from './slide';
 
 export class SlideSet {
   public name: string;
-  public slides: Slide[];
-  public style: SlideStyle;
-  public backgroundStyle: SlideStyle;
+  public slides: Slide[] = [];
+  public style: SlideStyle = {};
+  public backgroundStyle: SlideStyle = {};
 }
 
-// export var SAMPLE = OurSlideSet;
 export var SAMPLE: SlideSet = {
   name: 'Super awesome programming',
   style: {
@@ -73,7 +70,14 @@ export var SAMPLE: SlideSet = {
       },
       ['one two', 'three four'],
       '1fr 1fr',
-      '1fr 1fr')
+      '1fr 1fr'),
+    new SlideStack('8', [
+      new SlideImage('8a', '/assets/img/04196_thefifthpresident_1920x1080.jpg'),
+      new SlideGrid('8b', {}, {
+        'one': new SlideText('6:a', 'hello'),
+        'two': new SlideText('6:b', 'world!'),
+      }, ['one two'], '1fr', '1fr 1fr')
+    ])
   ]
 };
 

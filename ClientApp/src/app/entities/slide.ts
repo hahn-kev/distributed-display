@@ -16,7 +16,7 @@ export abstract class BaseSlide {
 
   protected constructor(
     public id: string,
-    style: SlideStyle) {
+    style: SlideStyle = {}) {
     this._style = style;
   }
 
@@ -29,9 +29,12 @@ export class SlideStack extends BaseSlide {
   slides: Slide[];
 
 
-  constructor(id: string, style: SlideStyle, slides: Slide[]) {
+  constructor(id: string, slides: Slide[], style?: SlideStyle) {
     super(id, style);
     this.slides = slides;
+    for (let i = 0; i < slides.length; i++) {
+      this.slides[i].style = {'z-index': slides.length - i, ...this.slides[i].style};
+    }
   }
 
   get title(): string {
@@ -60,10 +63,9 @@ export class SlideBasic extends SlideStack {
   private textSlide: SlideText;
 
   constructor(id: string, text: string, img: string, textStyle?: SlideStyle, imgStyle?: SlideStyle) {
-    let textSlide = new SlideText(id + '|text', text);
-    textSlide.style = textStyle;
-    let imageSlide = new SlideImage(id + '|img', imgStyle, img);
-    super(id, {}, [textSlide, imageSlide]);
+    let textSlide = new SlideText(id + '|text', text, {'z-index': 2, ...textStyle});
+    let imageSlide = new SlideImage(id + '|img', img, {'z-index': 1, ...imgStyle});
+    super(id, [textSlide, imageSlide], {});
     this.imageSlide = imageSlide;
     this.textSlide = textSlide;
   }
@@ -73,8 +75,8 @@ export class SlideText extends BaseSlide {
   slideType: 'text' = 'text';
   public text: string;
 
-  constructor(id: string, text: string) {
-    super(id, {});
+  constructor(id: string, text: string, style: SlideStyle = {'z-index': 5}) {
+    super(id, style);
     this.text = text;
   }
 
@@ -86,7 +88,7 @@ export class SlideText extends BaseSlide {
 export class SlideImage extends BaseSlide {
   slideType: 'image' = 'image';
 
-  constructor(id: string, style: SlideStyle, img: string) {
+  constructor(id: string, img: string, style?: SlideStyle) {
     super(id, style);
     this.img = img;
   }
@@ -142,6 +144,10 @@ export class SlideGrid extends BaseSlide {
       ...this._style
     };
   }
+
+  set style(value: SlideStyle) {
+    this._style = value;
+}
 
   slides: { [key: string]: Slide };
   areas: string[];
